@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./todo-incluido-png-1.png">
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./JavaScript/script.js"></script>
+    <title>ToDo Incluido</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header_item">
+            <img src="./todo-incluido-png-1.png">
+        </div>
+        <div class="header_item">ToDo Incluido</div>        
+        <div class="header_item">
+            <button type="button" class="header_item_btn btn-show-modal">Add New</button>
+        </div>
+    </header>
+
+    <div class="main">
+        <aside class="main_item">
+            <span class="main_item_header">To Do</span>
+            <ul class="todo">
+                <li class="todo_item">
+                    <div class="todo_item_head">
+                        <select name="priority" class="priority" disabled>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="option">
+                            <select name="option_status" class="option_status" disabled>
+                                <option value="To-Do">To Do</option>
+                                <option value="In-Progress">In Progress</option>
+                                <option value="Done">Done</option>
+                            </select>
+                            <button class="option_edit"><i class="far fa-edit"></i></button>
+                            <button class="option_delete"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="todo_item_content">
+                        <input type="text" class="todo_item_content_input" value="ლექცია 09:00 საათზე მათ.ანალიზში"  readonly>
+                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე. განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე</textarea>
+                    </div>
+                </li>
+
+            </ul>
+        </aside>
+        <aside class="main_item">
+            <span class="main_item_header">In Progress</span>
+            <ul class="in-progress">
+                
+            </ul>
+        </aside>
+        <aside class="main_item">
+            <span class="main_item_header">Done</span>
+            <ul class="done">
+
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <a href="https://github.com/lashaiakobadze" target="_blank"><small class="author">&copy;Copyright by L.Iakobadze 2021</small></a>
+    </footer>
+
+    <div class="modal hidden">
+        <button class="btn-close-modal">×</button>
+        <h2 class="modal_header">Create your new plan</h2>
+        <form class="todo_form">
+            <div class="todo_form_item">
+                <label>Name</label>
+                <input type="text" class="todo_form_item_input">
+            </div>
+            <div class="todo_form_item">
+                <label for="todo-textarea">Description</label>
+                <textarea name="todo-textarea" class="todo_form_item_textarea"></textarea>
+            </div>
+            <div class="todo_form_item">
+                <label for="priority">Choose a Priority:</label>
+                <select name="priority" class="todo_form_item_priority">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="todo_form_item">
+                <label for="status">Status:</label>
+                <select name="status" class="todo_form_item_status">
+                    <option value="To-Do">To Do</option>
+                    <option value="In-Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+        </form>
+        <div class="btn_container">
+            <button type="submit" class="btn">Submit<span class="arrow">→</span></button>
+        </div>        
+      </div>
+    <div class="overlay hidden"></div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+.header {
+    @include flexCenter(space-around);
+    white-space: nowrap;
+    width: 100%;
+    height: 15vh;
+    color: color(fifth);
+    font-size: size(xxl);
+    font-weight: 900;
+    font-family:'Courier New', Courier, monospace;
+    background-color: color(primary);
+
+    &_item {        
+        @include flexCenter;
+        height: 100%;
+        width: 33.3333%;
+
+        img {
+            width: 30%;
+            height: 95%;
+        }
+
+        &_btn {
+            width: 70%;
+            height: 50%;
+            @include flexCenter;
+            font-size: size(lg);
+            background-color: color(secondary);
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                background-color: darken($color: color(primary), $amount: 5);
+                color: lighten($color: color(fifth), $amount: 20);
+            }
+        }
+    }
+}
+
+
+.main {
+    @include flexCenter(space-around);
+    width: 100%;
+    height: 82vh;
+    background-color: color(secondary);
+
+    &_item {
+        height: 100%;
+        width: 33.333333%;
+        @include flexColumn;
+        overflow-y: scroll;
+        overflow-x: none;
+        // box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
+
+        &_header {
+            @include flexCenter;
+            margin: 5px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: size(lg);
+            font-weight: 500;
+        }
+    }
+}
+
+
+.footer {
+    @include  flexCenter;
+    width: 100%;
+    height: 3vh;
+    background-color: color(primary);
+
+    .author {
+        cursor: pointer;
+        font-size: 10px;
+        color: color(fifth);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: color(tertiary);
+    padding: 40px 40px;
+    padding-bottom: 0;
+    border-radius: 5px;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.5s;
+
+    &_header {
+        font-size: size(xl);
+        font-family: 'Courier New', Courier, monospace;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+  }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+
+
+
+
