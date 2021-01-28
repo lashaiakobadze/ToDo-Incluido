@@ -66,6 +66,8 @@ body {
       align-items: center; }
       .todo_item_head .priority, .in-progress_item_head .priority, .done_item_head .priority {
         background: transparent; }
+        .todo_item_head .priority option, .in-progress_item_head .priority option, .done_item_head .priority option {
+          background-color: #e1ccec; }
       .todo_item_head .option, .in-progress_item_head .option, .done_item_head .option {
         display: flex;
         justify-content: space-between;
@@ -146,8 +148,8 @@ body {
     .todo_form_item label[for='priority'] {
       font-size: 16px;
       font-weight: 500; }
-    .todo_form_item select {
-      background: #f1f1f6; }
+    .todo_form_item select, .todo_form_item option {
+      background-color: #c9b6e4; }
 
 .btn-close-modal {
   color: inherit;

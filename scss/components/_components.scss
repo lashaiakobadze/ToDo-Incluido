@@ -24,6 +24,10 @@
 
             .priority {
                 background: transparent;
+                
+                option {
+                    background-color: color(tertiary);
+                }
             }
 
             .option {
@@ -142,8 +146,8 @@
             font-weight: 500;
         }
 
-        select {
-            background: color(quaternary);
+        select, option {
+            background-color:  color(secondary);
         }
     }
 }

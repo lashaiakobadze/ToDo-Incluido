@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="./todo-incluido-png-1.png">
@@ -25,10 +25,11 @@
     <div class="main">
         <aside class="main_item">
             <span class="main_item_header">To Do</span>
-            <ul class="todo">
-                <li class="todo_item">
+             <ul class="todo drag">
+              <!--  <li class="todo_item" draggable="true">
                     <div class="todo_item_head">
                         <select name="priority" class="priority" disabled>
+                            <option selected="selected">3</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -41,18 +42,50 @@
                             <option value="10">10</option>
                         </select>
                         <div class="option">
-                            <select name="option_status" class="option_status" disabled>
-                                <option value="To-Do">To Do</option>
-                                <option value="In-Progress">In Progress</option>
-                                <option value="Done">Done</option>
+                            <select name="option_status" class="option_status hidden">
+                                <option selected="selected">To Do</option>
+                                <option value="1">To Do</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
                             </select>
-                            <button class="option_edit"><i class="far fa-edit"></i></button>
-                            <button class="option_delete"><i class="fas fa-eraser"></i></button>
+                            <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
+                            <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
                         </div>
                     </div>
 
                     <div class="todo_item_content">
                         <input type="text" class="todo_item_content_input" value="ლექცია 09:00 საათზე მათ.ანალიზში"  readonly>
+                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე. განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე</textarea>
+                    </div>
+                </li> -->
+
+                <li class="todo_item" draggable="true">
+                    <div class="todo_item_head">
+                        <select name="priority" class="priority" disabled>
+                            <option data-id='1' value="1">1</option>
+                            <option data-id='2' value="2">2</option>
+                            <option data-id='3' value="3">3</option>
+                            <option data-id='4' value="4">4</option>
+                            <option data-id='5' value="5">5</option>
+                            <option data-id='6' value="6">6</option>
+                            <option data-id='7' value="7">7</option>
+                            <option data-id='8' value="8">8</option>
+                            <option data-id='9' value="9">9</option>
+                            <option data-id='10' value="10">10</option>
+                        </select>
+                        <div class="option">
+                            <select name="option_status" class="option_status" disabled>
+                                <option data-id='To-Do' value="To-Do">To Do</option>
+                                <option data-id='In-Progress' value="In-Progress">In Progress</option>
+                                <option data-id='Done' value="Done">Done</option>
+                            </select>
+                            <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
+                            <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="todo_item_content">
+                        <input type="text" class="todo_item_content_input" value="ლექცია 10:00 საათზე მათ.ანალიზში"  readonly>
                         <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე. განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე</textarea>
                     </div>
                 </li>
@@ -61,13 +94,13 @@
         </aside>
         <aside class="main_item">
             <span class="main_item_header">In Progress</span>
-            <ul class="in-progress">
+            <ul class="in-progress drag">
                 
             </ul>
         </aside>
         <aside class="main_item">
             <span class="main_item_header">Done</span>
-            <ul class="done">
+            <ul class="done drag">
 
             </ul>
         </aside>
@@ -107,9 +140,9 @@
             <div class="todo_form_item">
                 <label for="status">Status:</label>
                 <select name="status" class="todo_form_item_status">
-                    <option value="To-Do">To Do</option>
-                    <option value="In-Progress">In Progress</option>
-                    <option value="Done">Done</option>
+                    <option value="1">To Do</option>
+                    <option value="2">In Progress</option>
+                    <option value="3">Done</option>
                 </select>
             </div>
         </form>
