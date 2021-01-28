@@ -9,6 +9,18 @@
     font-family:'Courier New', Courier, monospace;
     background-color: color(primary);
 
+    @include response(lg) {
+        font-size: size(xl);
+    }
+
+    @include response(md) {
+        font-size: size(sm);
+    }
+
+    @include response(sd) {
+        font-size: size(xs);
+    }
+
     &_item {        
         @include flexCenter;
         height: 100%;
@@ -17,6 +29,20 @@
         img {
             width: 30%;
             height: 95%;
+
+            @include response(lg) {
+                width: 30%;
+                height: 60%;
+            }
+        
+            @include response(md) {
+                width: 25%;
+                height: 40%;
+            }
+        
+            @include response(sd) {
+                font-size: size(xs);
+            }
         }
 
         &_btn {
@@ -27,6 +53,18 @@
             background-color: color(secondary);
             border-radius: 5px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+            @include response(lg) {
+                font-size: size(md);
+            }
+        
+            @include response(md) {
+                font-size: size(sm);
+            }
+
+            @include response(sd) {
+                font-size: size(xxs);
+            }
 
             &:hover {
                 background-color: darken($color: color(primary), $amount: 5);
@@ -49,14 +87,22 @@
         @include flexColumn;
         overflow-y: scroll;
         overflow-x: none;
-        // box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
-
+        white-space: nowrap;
+        
         &_header {
             @include flexCenter;
             margin: 5px 0;
             font-family: 'Courier New', Courier, monospace;
             font-size: size(lg);
             font-weight: 500;
+        
+            @include response(md) {
+                font-size: size(sm);
+            }
+
+            @include response(sd) {
+                font-size: size(xxs);
+            }
         }
     }
 }

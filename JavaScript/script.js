@@ -2,7 +2,6 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ToDo Incluido
-
 ////////////////////////////////////////////////////////////////
 // Open and close modal for new item
 const modal = document.querySelector('.modal');
@@ -32,7 +31,6 @@ document.addEventListener('keydown', function (e) {
 });
 
 
-
 /////////////////////////////////////////////////
 // Add new plan
 const containerTodo = document.querySelector('.todo'); 
@@ -59,10 +57,12 @@ const displayTodo = function (object) {
                         <div class="option">
                             <select name="option_status" class="option_status hidden" disabled>
                                 <option selected="selected">${object.ObjectStatus}</option>
-                                <option value="To-Do">To Do</option>
-                                <option value="In-Progress">In Progress</option>
-                                <option value="Done">Done</option>
+                                <option value="1">To Do</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
                             </select>
+
+                            <span>${object.date}</span>
                             <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
                             <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
                         </div>
@@ -77,21 +77,19 @@ const displayTodo = function (object) {
     if(object.ObjectStatus == 1) containerTodo.insertAdjacentHTML('afterbegin', html);
     if(object.ObjectStatus == 2) containerInProgress.insertAdjacentHTML('afterbegin', html);
     if(object.ObjectStatus == 3) containerDone.insertAdjacentHTML('afterbegin', html);
-
-    console.log(document.querySelectorAll('.todo_item').length);
 };
 
-console.log(document.querySelectorAll('.todo_item').length);
 
 //////////////////////////////////////////////
 // Create Object
 let todoObjects = [];
 
-function todoObject(ObjectName, ObjectDescription, ObjectPriority, ObjectStatus) {
+function todoObject(ObjectName, ObjectDescription, ObjectPriority, ObjectStatus, date) {
   this.ObjectName = ObjectName;
   this.ObjectDescription = ObjectDescription;
   this.ObjectPriority = ObjectPriority;
-  this.ObjectStatus = ObjectStatus
+  this.ObjectStatus = ObjectStatus;
+  this.date = date
 }
 
 const btnTransfer = document.querySelector('.btn');
@@ -102,22 +100,31 @@ const status = document.querySelector('.todo_form_item_status');
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+  const dateObj = new Date();
+  const month = monthNames[dateObj.getMonth()];
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const year = dateObj.getFullYear();
+  const output = month  + '\n'+ day  + ',' + year; 
+  
   const name = inputName.value;
   const description = inputTextarea.value;
   const priorityVal = priority.value;
   const statusId = status.value;
 
-  const newObject = new todoObject(name, description, priorityVal, statusId);
+  const newObject = new todoObject(name, description, priorityVal, statusId, output);
   
   todoObjects.push(newObject);
-  console.log('funqciasi ', todoObjects);
 
   displayTodo(newObject);
+  mainEdit();
   kaxa();
   dragUpdate();
 });
 
-console.log('garet', todoObjects);
+
 ////////////////////////////////////////////////////////////////
 // Delete 
 let todoPlan = document.querySelectorAll('.todo_item');
@@ -132,43 +139,32 @@ function kaxa() {
 
   btnDeleteOption.forEach(btn => btn.addEventListener('click', deletePlan));
 }
-
-
+kaxa();
 
 
 ////////////////////////////////////////////////////////////////
 // Edit 
-const btnEditOption = document.querySelector('.option_edit');
-const editInput = document.querySelector('.todo_item_content_input');
-const editTextarea = document.querySelector('.todo_item_content_textarea');
-const editPriority = document.querySelector('.priority');
-const editStatus = document.querySelector('.option_status');
+function mainEdit() {
+  const btnEditOption = document.querySelectorAll('.option_edit');
 
-const editPlan = function() {
-  // e.target.closest('.todo_item_content_input').readOnly =  !e.target.closest('.todo_item_content_input').readOnly;
-  // e.target.closest('.todo_item_content').classList.toggle('disabled');
+  function editPlan(e) {
+    e.target.closest('.todo_item_head').children[0].disabled = !e.target.closest('.todo_item_head').children[0].disabled;
+    e.target.closest('.todo_item').children[1].children[0].readOnly =  !e.target.closest('.todo_item').children[1].children[0].readOnly;
+    e.target.closest('.todo_item').children[1].children[1].readOnly =  !e.target.closest('.todo_item').children[1].children[1].readOnly;
+    e.target.closest('.todo_item').children[1].children[0].focus();
+  }
 
-  editInput.readOnly = !editInput.readOnly;
-  editTextarea.readOnly = !editTextarea.readOnly;
-  editPriority.disabled = !editPriority.disabled;
-  editStatus.disabled = !editStatus.disabled;
-  editInput.focus();
+ btnEditOption.forEach(btn => btn.addEventListener('click', editPlan));
 }
-
-
-// btnEditOption.forEach(btn => btn.addEventListener('click', editPlan));
-btnEditOption.addEventListener('click', editPlan);
-
+mainEdit();
 
 
 ////////////////////////////////////////////////////////////////
-// Draganddrop
-let draggedItem = null;
+// Drag&Drop
+let draggedItem;
 
-function dragUpdate() {
-  let lists = document.querySelectorAll('.drag'); 
-
-
+function dragUpdate() {  
+  let lists = document.querySelectorAll('.drag');
   for(let i = 0; i < todoPlan.length; i++) {
     const item = todoPlan[i];
   
@@ -203,5 +199,4 @@ function dragUpdate() {
     }
   }
 }
-
 dragUpdate();

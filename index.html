@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <div class="header_item">
-            <img src="./todo-incluido-png-1.png">
+            <img src="./todo-incluido-png-1.png" alt="todo incluido">
         </div>
         <div class="header_item">ToDo Incluido</div>        
         <div class="header_item">
@@ -26,7 +26,41 @@
         <aside class="main_item">
             <span class="main_item_header">To Do</span>
              <ul class="todo drag">
-              <!--  <li class="todo_item" draggable="true">
+               <li class="todo_item" draggable="true">
+                    <div class="todo_item_head">
+                        <select name="priority" class="priority" disabled>
+                            <option selected="selected">1</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="option">
+                            <select name="option_status" class="option_status">
+                                <option selected="selected">To Do</option>
+                                <option value="1">To Do</option>
+                                <option value="2">In Progress</option>
+                                <option value="3">Done</option>
+                            </select>
+                            <span>January 28,2021</span>
+                            <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
+                            <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="todo_item_content">
+                        <input type="text" class="todo_item_content_input" value="Lorem ipsum"  readonly>
+                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. loLorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+                    </div>
+                </li>
+
+                <li class="todo_item" draggable="true">
                     <div class="todo_item_head">
                         <select name="priority" class="priority" disabled>
                             <option selected="selected">3</option>
@@ -42,54 +76,22 @@
                             <option value="10">10</option>
                         </select>
                         <div class="option">
-                            <select name="option_status" class="option_status hidden">
-                                <option selected="selected">To Do</option>
-                                <option value="1">To Do</option>
-                                <option value="2">In Progress</option>
-                                <option value="3">Done</option>
-                            </select>
-                            <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
-                            <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="todo_item_content">
-                        <input type="text" class="todo_item_content_input" value="ლექცია 09:00 საათზე მათ.ანალიზში"  readonly>
-                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე. განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე</textarea>
-                    </div>
-                </li> -->
-
-                <li class="todo_item" draggable="true">
-                    <div class="todo_item_head">
-                        <select name="priority" class="priority" disabled>
-                            <option data-id='1' value="1">1</option>
-                            <option data-id='2' value="2">2</option>
-                            <option data-id='3' value="3">3</option>
-                            <option data-id='4' value="4">4</option>
-                            <option data-id='5' value="5">5</option>
-                            <option data-id='6' value="6">6</option>
-                            <option data-id='7' value="7">7</option>
-                            <option data-id='8' value="8">8</option>
-                            <option data-id='9' value="9">9</option>
-                            <option data-id='10' value="10">10</option>
-                        </select>
-                        <div class="option">
                             <select name="option_status" class="option_status" disabled>
                                 <option data-id='To-Do' value="To-Do">To Do</option>
                                 <option data-id='In-Progress' value="In-Progress">In Progress</option>
                                 <option data-id='Done' value="Done">Done</option>
                             </select>
+                            <span>January 28,2021</span>
                             <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
                             <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
                         </div>
                     </div>
 
                     <div class="todo_item_content">
-                        <input type="text" class="todo_item_content_input" value="ლექცია 10:00 საათზე მათ.ანალიზში"  readonly>
-                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე. განსაკუთერბული ყურადღება გავამახვილოთ ფურიეს მწკვრივების მდგრადობაზე</textarea>
+                        <input type="text" class="todo_item_content_input" value="Lorem ipsum"  readonly>
+                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>loLorem ipsum dolor sit amet consectetur adipisicing elit.loLorem ipsum dolor sit amet consectetur adipisicing elit. </textarea>
                     </div>
                 </li>
-
             </ul>
         </aside>
         <aside class="main_item">
