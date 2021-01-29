@@ -77,6 +77,17 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center; }
+        .todo_item_head .option span, .in-progress_item_head .option span, .done_item_head .option span {
+          font-size: 16px; }
+          @media (max-width: 1200px) {
+            .todo_item_head .option span, .in-progress_item_head .option span, .done_item_head .option span {
+              font-size: 13px; } }
+          @media (max-width: 760px) {
+            .todo_item_head .option span, .in-progress_item_head .option span, .done_item_head .option span {
+              font-size: 10px; } }
+          @media (max-width: 560px) {
+            .todo_item_head .option span, .in-progress_item_head .option span, .done_item_head .option span {
+              font-size: 5px; } }
         .todo_item_head .option_status, .in-progress_item_head .option_status, .done_item_head .option_status {
           background: transparent;
           display: none; }
@@ -104,7 +115,19 @@ body {
         margin-bottom: 5px;
         background: #c9b6e4;
         padding: 0 5px;
-        font-size: 18px; }
+        font-size: 20px; }
+        @media (max-width: 1200px) {
+          .todo_item_content_input, .in-progress_item_content_input, .done_item_content_input {
+            font-size: 20px; } }
+        @media (max-width: 1000px) {
+          .todo_item_content_input, .in-progress_item_content_input, .done_item_content_input {
+            font-size: 18px; } }
+        @media (max-width: 760px) {
+          .todo_item_content_input, .in-progress_item_content_input, .done_item_content_input {
+            font-size: 16px; } }
+        @media (max-width: 560px) {
+          .todo_item_content_input, .in-progress_item_content_input, .done_item_content_input {
+            font-size: 13px; } }
       .todo_item_content_textarea, .in-progress_item_content_textarea, .done_item_content_textarea {
         width: 100%;
         height: 7.5vh;
@@ -113,7 +136,16 @@ body {
         border-radius: 3px;
         overflow-y: scroll;
         padding: 0 5px;
-        font-size: 16px; }
+        font-size: 18px; }
+        @media (max-width: 1200px) {
+          .todo_item_content_textarea, .in-progress_item_content_textarea, .done_item_content_textarea {
+            font-size: 18px; } }
+        @media (max-width: 1000px) {
+          .todo_item_content_textarea, .in-progress_item_content_textarea, .done_item_content_textarea {
+            font-size: 16px; } }
+        @media (max-width: 760px) {
+          .todo_item_content_textarea, .in-progress_item_content_textarea, .done_item_content_textarea {
+            font-size: 13px; } }
       .todo_item_content ::-webkit-scrollbar, .in-progress_item_content ::-webkit-scrollbar, .done_item_content ::-webkit-scrollbar {
         width: 5px; }
       .todo_item_content ::-webkit-scrollbar-track, .in-progress_item_content ::-webkit-scrollbar-track, .done_item_content ::-webkit-scrollbar-track {
@@ -197,12 +229,18 @@ body {
   font-weight: 900;
   font-family: 'Courier New', Courier, monospace;
   background-color: #be9fe1; }
+  @media (max-width: 1200px) {
+    .header {
+      font-size: 50px; } }
   @media (max-width: 1000px) {
     .header {
       font-size: 30px; } }
   @media (max-width: 760px) {
     .header {
-      font-size: 18px; } }
+      font-size: 25px; } }
+  @media (max-width: 560px) {
+    .header {
+      font-size: 20px; } }
   .header_item {
     display: flex;
     justify-content: center;
@@ -235,7 +273,10 @@ body {
           font-size: 20px; } }
       @media (max-width: 760px) {
         .header_item_btn {
-          font-size: 18px; } }
+          font-size: 16px; } }
+      @media (max-width: 560px) {
+        .header_item_btn {
+          font-size: 13px; } }
       .header_item_btn:hover {
         background-color: #b18cdb;
         color: #72437b; }
@@ -268,6 +309,9 @@ body {
       @media (max-width: 760px) {
         .main_item_header {
           font-size: 18px; } }
+      @media (max-width: 560px) {
+        .main_item_header {
+          font-size: 13px; } }
 
 .footer {
   display: flex;

@@ -9,16 +9,20 @@
     font-family:'Courier New', Courier, monospace;
     background-color: color(primary);
 
+    @include response(xl) {
+        font-size: size(xxl);
+    }
+
     @include response(lg) {
         font-size: size(xl);
     }
 
     @include response(md) {
-        font-size: size(sm);
+        font-size: size(lg);
     }
 
-    @include response(sd) {
-        font-size: size(xs);
+    @include response(sm) {
+        font-size: size(md);
     }
 
     &_item {        
@@ -39,10 +43,6 @@
                 width: 25%;
                 height: 40%;
             }
-        
-            @include response(sd) {
-                font-size: size(xs);
-            }
         }
 
         &_btn {
@@ -59,10 +59,10 @@
             }
         
             @include response(md) {
-                font-size: size(sm);
+                font-size: size(xs);
             }
 
-            @include response(sd) {
+            @include response(sm) {
                 font-size: size(xxs);
             }
 
@@ -100,7 +100,7 @@
                 font-size: size(sm);
             }
 
-            @include response(sd) {
+            @include response(sm) {
                 font-size: size(xxs);
             }
         }

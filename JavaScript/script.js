@@ -31,55 +31,6 @@ document.addEventListener('keydown', function (e) {
 });
 
 
-/////////////////////////////////////////////////
-// Add new plan
-const containerTodo = document.querySelector('.todo'); 
-const containerInProgress = document.querySelector('.in-progress'); 
-const containerDone = document.querySelector('.done'); 
-
-const displayTodo = function (object) {
-    const html = `    
-                  <li class="todo_item" draggable="true">
-                    <div class="todo_item_head">
-                        <select name="priority" class="priority" disabled>
-                            <option selected="selected">${object.ObjectPriority}</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <div class="option">
-                            <select name="option_status" class="option_status hidden" disabled>
-                                <option selected="selected">${object.ObjectStatus}</option>
-                                <option value="1">To Do</option>
-                                <option value="2">In Progress</option>
-                                <option value="3">Done</option>
-                            </select>
-
-                            <span>${object.date}</span>
-                            <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
-                            <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="todo_item_content">
-                        <input type="text" class="todo_item_content_input" value="${object.ObjectName}"  readonly>
-                        <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>${object.ObjectDescription}</textarea>
-                    </div>
-                  </li>
-                `;
-    if(object.ObjectStatus == 1) containerTodo.insertAdjacentHTML('afterbegin', html);
-    if(object.ObjectStatus == 2) containerInProgress.insertAdjacentHTML('afterbegin', html);
-    if(object.ObjectStatus == 3) containerDone.insertAdjacentHTML('afterbegin', html);
-};
-
-
 //////////////////////////////////////////////
 // Create Object
 let todoObjects = [];
@@ -97,6 +48,10 @@ const inputName = document.querySelector('.todo_form_item_input');
 const inputTextarea = document.querySelector('.todo_form_item_textarea');
 const priority = document.querySelector('.todo_form_item_priority');
 const status = document.querySelector('.todo_form_item_status');
+
+const containerTodo = document.querySelector('.todo'); 
+const containerInProgress = document.querySelector('.in-progress'); 
+const containerDone = document.querySelector('.done'); 
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
@@ -118,11 +73,74 @@ btnTransfer.addEventListener('click', function (e) {
   
   todoObjects.push(newObject);
 
-  displayTodo(newObject);
+  // Sort objects by priority
+  let byDate = todoObjects.slice(0);
+  byDate.sort(function(a,b) {
+      return a.ObjectPriority - b.ObjectPriority;
+  });
+  todoObjects = byDate;
+  
+  function removeChildList() {
+    containerTodo.innerHTML = containerInProgress.innerHTML = containerDone.innerHTML = ""; 
+
+    for(let i = 0; i < todoObjects.length; i++) {
+      displayTodo(todoObjects[i]);
+    }
+  }
+
+  removeChildList();
   mainEdit();
   kaxa();
   dragUpdate();
 });
+
+/////////////////////////////////////////////////
+// Add new plan
+
+function  displayTodo(object) {
+  const html = `    
+                <li class="todo_item" draggable="true">
+                  <div class="todo_item_head">
+                      <select name="priority" class="priority" disabled>
+                          <option selected="selected">${object.ObjectPriority}</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                      </select>
+                      <div class="option">
+                          <select name="option_status" class="option_status hidden" disabled>
+                              <option selected="selected">${object.ObjectStatus}</option>
+                              <option value="1">To Do</option>
+                              <option value="2">In Progress</option>
+                              <option value="3">Done</option>
+                          </select>
+
+                          <span>${object.date}</span>
+                          <button type="button" class="option_edit"><i class="far fa-edit"></i></button>
+                          <button type="button" class="option_delete"><i class="fas fa-eraser"></i></button>
+                      </div>
+                  </div>
+
+                  <div class="todo_item_content">
+                      <input type="text" class="todo_item_content_input" value="${object.ObjectName}"  readonly>
+                      <textarea name="" class="todo_item_content_textarea" cols="30" rows="10" readonly>${object.ObjectDescription}</textarea>
+                  </div>
+                </li>
+              `;
+    if(object.ObjectStatus == 1) containerTodo.insertAdjacentHTML('beforeend', html);
+    if(object.ObjectStatus == 2) containerInProgress.insertAdjacentHTML('beforeend', html);
+    if(object.ObjectStatus == 3) containerDone.insertAdjacentHTML('beforeend', html);
+  // if(object.ObjectStatus == 1) containerTodo.append(html);
+  // if(object.ObjectStatus == 2) containerInProgress.append(html);
+  // if(object.ObjectStatus == 3) containerDone.append(html);
+};
 
 
 ////////////////////////////////////////////////////////////////
@@ -138,8 +156,7 @@ function kaxa() {
   }
 
   btnDeleteOption.forEach(btn => btn.addEventListener('click', deletePlan));
-}
-kaxa();
+} 
 
 
 ////////////////////////////////////////////////////////////////
@@ -156,7 +173,6 @@ function mainEdit() {
 
  btnEditOption.forEach(btn => btn.addEventListener('click', editPlan));
 }
-mainEdit();
 
 
 ////////////////////////////////////////////////////////////////
@@ -199,4 +215,3 @@ function dragUpdate() {
     }
   }
 }
-dragUpdate();
