@@ -91,6 +91,14 @@ body {
         .todo_item_head .option_status, .in-progress_item_head .option_status, .done_item_head .option_status {
           background: transparent;
           display: none; }
+          .todo_item_head .option_status option, .in-progress_item_head .option_status option, .done_item_head .option_status option {
+            background-color: #e1ccec; }
+        .todo_item_head .option_corect, .in-progress_item_head .option_corect, .done_item_head .option_corect {
+          margin: 0 10px;
+          background: transparent;
+          font-family: 'Roboto', sans-serif; }
+          .todo_item_head .option_corect:hover, .in-progress_item_head .option_corect:hover, .done_item_head .option_corect:hover {
+            background-color: #be9fe1; }
         .todo_item_head .option_edit, .in-progress_item_head .option_edit, .done_item_head .option_edit {
           margin: 0 10px;
           background: transparent;

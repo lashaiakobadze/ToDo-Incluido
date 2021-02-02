@@ -52,6 +52,20 @@
                 &_status {
                     background: transparent;
                     display: none;
+
+                    option {
+                        background-color: color(tertiary);
+                    }
+                }
+
+                &_corect {
+                    margin: 0 10px;
+                    background: transparent;
+                    font-family: 'Roboto', sans-serif;
+
+                    &:hover {
+                        background-color: color(primary);
+                    }
                 }
 
                 &_edit {
@@ -220,16 +234,7 @@
 
         &:hover {
             background-color: darken($color: color(primary), $amount: 3);
-        }
-
-        // .arrow {
-        //     margin-left: 15px;
-        //     transition: all .3s ease-in-out;
-        // }
-
-        // &:hover .arrow{
-        //     transform: rotate(360deg);
-        // }
+        } 
     }
 }
 
